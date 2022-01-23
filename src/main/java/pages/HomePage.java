@@ -8,6 +8,35 @@ import java.util.List;
 
 public class HomePage extends BasePage {
 
+    @FindBy(id = "navbar-main")
+    private WebElement header;
+    @FindBy(id = "twotabsearchtextbox")
+    private WebElement searchField;
+    @FindBy(id = "nav-search-submit-button")
+    private WebElement searchButton;
+    @FindBy(id = "nav-cart")
+    private WebElement cartIcon;
+    @FindBy(id = "nav-cart-count")
+    private WebElement cartCountIcon;
+    @FindBy(id = "nav-link-accountList-nav-line-1")
+    private WebElement signInButton;
+    @FindBy(id = "nav-logo")
+    private WebElement logo;
+    @FindBy(id = "nav-xshop")
+    private WebElement navigationMenu;
+    @FindBy(id = "icp-nav-flyout")
+    private WebElement languageIcon;
+    @FindBy(id = "nav-global-location-data-modal-action")
+    private WebElement locationIcon;
+    @FindBy(id = "a-popover-header-1")
+    private WebElement changeLocationPopup;
+    @FindBy(className = "a-dropdown-container")
+    private WebElement dropdownCountryValue;
+    @FindBy(css = "span.a-button.a-button-primary")
+    private WebElement submitChangeCountryButton;
+    @FindBy(css = "div.a-popover-inner.a-lgtbox-vertical-scroll")
+    private List<WebElement> countryListIcons;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -15,48 +44,6 @@ public class HomePage extends BasePage {
     public void openHomePage(String url) {
         driver.get(url);
     }
-
-    @FindBy(id = "navbar-main")
-    private WebElement header;
-
-    @FindBy(id = "twotabsearchtextbox")
-    private WebElement searchField;
-
-    @FindBy(id = "nav-search-submit-button")
-    private WebElement searchButton;
-
-    @FindBy(id = "nav-cart")
-    private WebElement cartIcon;
-
-    @FindBy(id = "nav-cart-count")
-    private WebElement cartCountIcon;
-
-    @FindBy(id = "nav-link-accountList-nav-line-1")
-    private WebElement signInButton;
-
-    @FindBy(id = "nav-logo")
-    private WebElement logo;
-
-    @FindBy(id = "nav-xshop")
-    private WebElement navigationMenu;
-
-    @FindBy(id = "icp-nav-flyout")
-    private WebElement languageIcon;
-
-    @FindBy(id = "nav-global-location-data-modal-action")
-    private WebElement locationIcon;
-
-    @FindBy(id = "a-popover-header-1")
-    private WebElement changeLocationPopup;
-
-    @FindBy(className = "a-dropdown-container")
-    private WebElement dropdownCountryValue;
-
-    @FindBy(css = "span.a-button.a-button-primary")
-    private WebElement submitChangeCountryButton;
-
-    @FindBy(css = "div.a-popover-inner.a-lgtbox-vertical-scroll")
-    private List<WebElement> countryListIcons;
 
     public WebElement locationIcon() {
         return locationIcon;

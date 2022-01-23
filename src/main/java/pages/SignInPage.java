@@ -6,21 +6,18 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends BasePage {
 
+    @FindBy(id = "auth-email-missing-alert")
+    private WebElement alertMessage;
+    @FindBy(className = "a-button-input")
+    private WebElement continueButton;
+    @FindBy(id = "ap_email")
+    private WebElement loginField;
+    @FindBy(id = "auth-error-message-box")
+    private WebElement errorMessage;
+
     public SignInPage(WebDriver driver) {
         super(driver);
     }
-
-    @FindBy(id = "auth-email-missing-alert")
-    private WebElement alertMessage;
-
-    @FindBy(className = "a-button-input")
-    private WebElement continueButton;
-
-    @FindBy(id = "ap_email")
-    private WebElement loginField;
-
-    @FindBy(id = "auth-error-message-box")
-    private WebElement errorMessage;
 
     public WebElement getErrorMessage() {
         return errorMessage;

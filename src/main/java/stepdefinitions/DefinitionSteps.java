@@ -30,19 +30,17 @@ public class DefinitionSteps {
     SearchResultPage searchResultPage;
 
 
-
-
-
     @Before
-    public void testsSetUp(){
+    public void testsSetUp() {
         chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         pageFactoryManager = new PageFactoryManager(driver);
 
     }
+
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.close();
     }
 
@@ -103,9 +101,6 @@ public class DefinitionSteps {
         signInPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         assertTrue(signInPage.isAlertMessageVisible());
     }
-
-
-
 
 
     @And("User checks language icon visible")
