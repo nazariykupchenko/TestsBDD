@@ -16,58 +16,58 @@ public class HomePage extends BasePage {
         driver.get(url);
     }
 
-    @FindBy(xpath = "//header[@id='navbar-main']")
+    @FindBy(id = "navbar-main")
     private WebElement header;
 
-    @FindBy(xpath = "//input[@id='twotabsearchtextbox']")
+    @FindBy(id = "twotabsearchtextbox")
     private WebElement searchField;
 
-    @FindBy(xpath = "//input[@id='nav-search-submit-button']")
+    @FindBy(id = "nav-search-submit-button")
     private WebElement searchButton;
 
-    @FindBy(xpath = "//a[@id='nav-cart']")
+    @FindBy(id = "nav-cart")
     private WebElement cartIcon;
 
-    @FindBy(xpath = "//span[@id='nav-cart-count']")
+    @FindBy(id = "nav-cart-count")
     private WebElement cartCountIcon;
 
-    @FindBy(xpath = "//span[@id='nav-link-accountList-nav-line-1']")
+    @FindBy(id = "nav-link-accountList-nav-line-1")
     private WebElement signInButton;
 
-    @FindBy(xpath = "//div[@id='nav-logo']")
+    @FindBy(id = "nav-logo")
     private WebElement logo;
 
-    @FindBy(xpath = "//div[@id='nav-xshop']")
+    @FindBy(id = "nav-xshop")
     private WebElement navigationMenu;
 
-    @FindBy(xpath = "//span[@class='icp-nav-flag icp-nav-flag-us']")
+    @FindBy(id = "icp-nav-flyout")
     private WebElement languageIcon;
 
-    @FindBy(xpath = "//span[@id='glow-ingress-line2']")
+    @FindBy(id = "nav-global-location-data-modal-action")
     private WebElement locationIcon;
 
-    @FindBy(xpath = "//h4[@id='a-popover-header-1']")
+    @FindBy(id = "a-popover-header-1")
     private WebElement changeLocationPopup;
 
-    @FindBy(xpath = "//span[@class='a-button-text a-declarative']")
+    @FindBy(className = "a-dropdown-container")
     private WebElement dropdownCountryValue;
 
-    @FindBy(xpath = "//button[@name='glowDoneButton']")
+    @FindBy(css = "span.a-button.a-button-primary")
     private WebElement submitChangeCountryButton;
 
-    @FindBy(xpath = "//li[contains(@role, 'option')]")
+    @FindBy(css = "div.a-popover-inner.a-lgtbox-vertical-scroll")
     private List<WebElement> countryListIcons;
 
-    public WebElement locationIcon(){
+    public WebElement locationIcon() {
         return locationIcon;
     }
 
-    public void clickSubmitCountryButton(){
+    public void clickSubmitCountryButton() {
         submitChangeCountryButton.click();
     }
 
 
-    public void clickCountryListOnFirstCountry(){
+    public void clickCountryListOnFirstCountry() {
         countryListIcons.get(0).click();
     }
 
@@ -125,11 +125,11 @@ public class HomePage extends BasePage {
         locationIcon.click();
     }
 
-    public void isLocationPopUpVisible(){
+    public void isLocationPopUpVisible() {
         changeLocationPopup.isDisplayed();
     }
 
-    public void clickDropdownCountryMenu(){
+    public void clickDropdownCountryMenu() {
         dropdownCountryValue.click();
     }
 

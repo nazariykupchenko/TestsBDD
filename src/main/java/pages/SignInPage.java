@@ -10,16 +10,16 @@ public class SignInPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[contains(text(),'email')]")
+    @FindBy(id = "auth-email-missing-alert")
     private WebElement alertMessage;
 
-    @FindBy(xpath = "//span[@id='continue']")
+    @FindBy(className = "a-button-input")
     private WebElement continueButton;
 
-    @FindBy(xpath = "//input[@id='ap_email']")
+    @FindBy(id = "ap_email")
     private WebElement loginField;
 
-    @FindBy(xpath = "//div[@id='auth-error-message-box']")
+    @FindBy(id = "auth-error-message-box")
     private WebElement errorMessage;
 
     public WebElement getErrorMessage() {
@@ -58,6 +58,4 @@ public class SignInPage extends BasePage {
         loginField.clear();
         loginField.sendKeys(keyword);
     }
-
-
 }

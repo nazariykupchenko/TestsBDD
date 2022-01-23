@@ -127,7 +127,7 @@ public class DefinitionSteps {
     @And("User checks that languages for select visible")
     public void userChecksThatLanguagesForSelectVisible() {
         languagePage = pageFactoryManager.getLanguagePage();
-        languagePage.waitVisibilityOfElement(DEFAULT_TIMEOUT, languagePage.getLanguagesForSelect());
+        languagePage.waitVisibilityOfElement(DEFAULT_TIMEOUT, languagePage.getLanguagesForSelect().get(0));
         Assert.assertTrue(languagePage.isLanguagesForSelectVisible());
     }
 
