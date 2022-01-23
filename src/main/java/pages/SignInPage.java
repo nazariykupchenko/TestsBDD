@@ -6,21 +6,18 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends BasePage {
 
+    @FindBy(id = "auth-email-missing-alert")
+    private WebElement alertMessage;
+    @FindBy(className = "a-button-input")
+    private WebElement continueButton;
+    @FindBy(id = "ap_email")
+    private WebElement loginField;
+    @FindBy(id = "auth-error-message-box")
+    private WebElement errorMessage;
+
     public SignInPage(WebDriver driver) {
         super(driver);
     }
-
-    @FindBy(xpath = "//div[contains(text(),'email')]")
-    private WebElement alertMessage;
-
-    @FindBy(xpath = "//span[@id='continue']")
-    private WebElement continueButton;
-
-    @FindBy(xpath = "//input[@id='ap_email']")
-    private WebElement loginField;
-
-    @FindBy(xpath = "//div[@id='auth-error-message-box']")
-    private WebElement errorMessage;
 
     public WebElement getErrorMessage() {
         return errorMessage;
@@ -58,6 +55,4 @@ public class SignInPage extends BasePage {
         loginField.clear();
         loginField.sendKeys(keyword);
     }
-
-
 }

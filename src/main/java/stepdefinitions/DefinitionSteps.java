@@ -30,19 +30,17 @@ public class DefinitionSteps {
     SearchResultPage searchResultPage;
 
 
-
-
-
     @Before
-    public void testsSetUp(){
+    public void testsSetUp() {
         chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         pageFactoryManager = new PageFactoryManager(driver);
 
     }
+
     @After
-    public void tearDown(){
+    public void tearDown() {
         driver.close();
     }
 
@@ -105,9 +103,6 @@ public class DefinitionSteps {
     }
 
 
-
-
-
     @And("User checks language icon visible")
     public void userChecksLanguageIconVisible() {
         homePage.isLanguageIconVisible();
@@ -127,7 +122,7 @@ public class DefinitionSteps {
     @And("User checks that languages for select visible")
     public void userChecksThatLanguagesForSelectVisible() {
         languagePage = pageFactoryManager.getLanguagePage();
-        languagePage.waitVisibilityOfElement(DEFAULT_TIMEOUT, languagePage.getLanguagesForSelect());
+        languagePage.waitVisibilityOfElement(DEFAULT_TIMEOUT, languagePage.getLanguagesForSelect().get(0));
         Assert.assertTrue(languagePage.isLanguagesForSelectVisible());
     }
 
