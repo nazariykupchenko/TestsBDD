@@ -68,7 +68,19 @@ Feature: Smoke
       | homePage                            | countryName |
       | https://www.amazon.com/ref=nav_logo | Australia   |
 
+  Scenario Outline: Check adding product to cart page
+    Given User opens '<homePage>' page
+    When User enter '<productName>' to search field
+    And User clicks on search button
+    And User clicks on first product in search results list
+    And User clicks Add to Cart button
+    Then User checks that add to cart popup header is '<header>'
+    And User checks that Go to Cart button visible
+    And User checks that Proceed to checkout button visible
 
+    Examples:
+      | homePage                            | productName |header       |
+      | https://www.amazon.com/ref=nav_logo | Iphone 10   |Added to Cart|
 
 
 

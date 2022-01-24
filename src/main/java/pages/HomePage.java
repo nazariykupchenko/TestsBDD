@@ -120,5 +120,8 @@ public class HomePage extends BasePage {
         dropdownCountryValue.click();
     }
 
-
+    public void enterProductNameToSearchField(String productName){
+        searchField.clear();
+        searchField.sendKeys(productName);
+    }
 }
