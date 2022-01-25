@@ -31,7 +31,6 @@ public class DefinitionSteps {
     SearchResultPage searchResultPage;
     ProductPage productPage;
     CheckoutPage checkoutPage;
-    SearchResultPage searchResultPage1;
 
 
     @Before
@@ -40,9 +39,6 @@ public class DefinitionSteps {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         pageFactoryManager = new PageFactoryManager(driver);
-        searchResultPage1 = new SearchResultPage(driver);
-
-
     }
 
     @After
@@ -225,11 +221,8 @@ public class DefinitionSteps {
 
     @And("User clicks on first product in search results list")
     public void userClicksOnFirstProductInSearchResultsList() {
-//        searchResultPage = pageFactoryManager.getSearchResultPage();
-        searchResultPage1.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-//        searchResultPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, searchResultPage.getSearchResultList().get(0));
-        searchResultPage1.getSearchResultList().get(0).click();
-
+        searchResultPage = pageFactoryManager.getSearchResultPage();
+        searchResultPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, searchResultPage.getSearchResultList().get(0));
     }
 
     @And("User clicks Add to Cart button")
