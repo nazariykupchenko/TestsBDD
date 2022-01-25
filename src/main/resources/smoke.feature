@@ -82,8 +82,13 @@ Feature: Smoke
       | homePage                            | productName |header       |
       | https://www.amazon.com/ref=nav_logo | Iphone 10   |Added to Cart|
 
-
-
+ Scenario Outline: Check side menu list
+   Given User opens '<homePage>' page
+   When User open side menu
+   Then User check that amount of submenu  in side menu list are 28
+   Examples:
+     | homePage                            |
+     | https://www.amazon.com/ref=nav_logo |
 
 
 

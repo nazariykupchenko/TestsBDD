@@ -31,6 +31,7 @@ public class DefinitionSteps {
     SearchResultPage searchResultPage;
     ProductPage productPage;
     CheckoutPage checkoutPage;
+    SearchResultPage searchResultPage1;
 
 
     @Before
@@ -39,6 +40,8 @@ public class DefinitionSteps {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         pageFactoryManager = new PageFactoryManager(driver);
+        searchResultPage1 = new SearchResultPage(driver);
+
 
     }
 
@@ -222,10 +225,10 @@ public class DefinitionSteps {
 
     @And("User clicks on first product in search results list")
     public void userClicksOnFirstProductInSearchResultsList() {
-        searchResultPage = pageFactoryManager.getSearchResultPage();
-        searchResultPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+//        searchResultPage = pageFactoryManager.getSearchResultPage();
+        searchResultPage1.waitForPageLoadComplete(DEFAULT_TIMEOUT);
 //        searchResultPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, searchResultPage.getSearchResultList().get(0));
-        searchResultPage.getSearchResultList().get(0).click();
+        searchResultPage1.getSearchResultList().get(0).click();
 
     }
 
@@ -250,5 +253,16 @@ public class DefinitionSteps {
     @And("User checks that Proceed to checkout button visible")
     public void userChecksThatProceedToCheckoutButtonVisible() {
         Assert.assertTrue(checkoutPage.isProceedToCheckoutButtonVisible());
+    }
+
+    @When("User open side menu")
+    public void userOpenSideMenu() {
+        homePage.clickSideMenuButton();
+    }
+
+    @Then("User check that amount of submenu  in side menu list are {int}")
+    public void userCheckThatAmountOfSubmenuInSideMenuListAre(int arg0) {
+        homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        Assert.assertEquals(homePage.getAmountOfSideMenuTitles(), arg0);
     }
 }
