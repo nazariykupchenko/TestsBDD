@@ -14,11 +14,15 @@ public class SignInPage extends BasePage {
     private WebElement loginField;
     @FindBy(id = "auth-error-message-box")
     private WebElement errorMessage;
+    @FindBy(id = "auth-create-account-link")
+    private WebElement createNewAccountButton;
 
     public SignInPage(WebDriver driver) {
         super(driver);
     }
-
+    public void clickCreateNewAccountButton(){
+        createNewAccountButton.click();
+    }
     public WebElement getErrorMessage() {
         return errorMessage;
     }

@@ -91,6 +91,24 @@ Feature: Smoke
      | https://www.amazon.com/ref=nav_logo |
 
 
+ Scenario Outline: Check to register with invalid email data
+   Given User opens '<homePage>' page
+   And User clicks sign in button
+   And User clicks create new account button
+   And User checks name, email, password fields visibility
+   And User checks create account button visibility
+   When User enter '<name>' to name field
+   And User enter '<email>' to email_address  field
+   And User enter '<password>' to password field
+   And User re-enter '<password>' to password confirmation field
+   And User clicks  create new account on Amazon button
+   Then User checks that warning message visible
+   Examples:
+     | homePage                            |name |email|password|
+     | https://www.amazon.com/ref=nav_logo |test |test |testtest|
+
+
+
 
 
 

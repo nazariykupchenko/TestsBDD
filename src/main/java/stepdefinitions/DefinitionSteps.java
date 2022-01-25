@@ -258,4 +258,61 @@ public class DefinitionSteps {
         homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         Assert.assertEquals(homePage.getAmountOfSideMenuTitles(), arg0);
     }
+
+    @And("User clicks create new account button")
+    public void userClicksCreateNewAccountButton() {
+        signInPage = pageFactoryManager.getSignInPage();
+        signInPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        signInPage.clickCreateNewAccountButton();
+    }
+
+    @And("User checks name, email, password fields visibility")
+    public void userChecksNameEmailPasswordFieldsVisibility() {
+        registrationPage = pageFactoryManager.getRegistrationPage();
+        registrationPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        registrationPage.isNameFieldVisible();
+        registrationPage.isEmailAddressFieldVisible();
+        registrationPage.isPasswordFieldVisible();
+    }
+
+    @And("User checks create account button visibility")
+    public void userChecksCreateAccountButtonVisibility() {
+        Assert.assertTrue(registrationPage.isCreateNewAccountOnAmazonButtonVisible());
+    }
+
+    @When("User enter {string} to name field")
+    public void userEnterNameToNameField(final String name) {
+        registrationPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        registrationPage.enterNameToNameField(name);
+    }
+
+    @And("User enter {string} to email_address  field")
+    public void userEnterEmailToEmail_addressField(final String email) {
+        registrationPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        registrationPage.enterEmailToEmailAddressField(email);
+    }
+
+    @And("User enter {string} to password field")
+    public void userEnterPasswordToPasswordField(final String password) {
+        registrationPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        registrationPage.enterPasswordToPasswordField(password);
+    }
+
+    @And("User re-enter {string} to password confirmation field")
+    public void userReEnterPasswordToPasswordConfirmationField(final String password) {
+        registrationPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        registrationPage.enterPasswordToPasswordConfirmationField(password);
+    }
+
+    @And("User clicks  create new account on Amazon button")
+    public void userClicksCreateNewAccountOnAmazonButton() {
+        registrationPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        registrationPage.clickCreateNewAccountOnAmazonButton();
+    }
+
+    @Then("User checks that warning message visible")
+    public void userChecksThatWarningMessageVisible() {
+        registrationPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, registrationPage.getWarningMessage());
+        Assert.assertTrue(registrationPage.isWarningMessageVisible());
+    }
 }
