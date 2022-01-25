@@ -7,20 +7,15 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class SearchResultPage extends BasePage {
+
+    @FindBy(css = "a.a-link-normal.s-link-style.a-text-normal")
+    private List<WebElement> searchResultList;
+
     public SearchResultPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(css = "div.s-result-item.s-asin.sg-col-0-of-12.sg-col-16-of-20.sg-col.s-widget-spacing-small.sg-col-12-of-16")
-    private List<WebElement> searchResultList;
-
-
-    public List<WebElement> getSearchResultList(){
+    public List<WebElement> getSearchResultList() {
         return searchResultList;
     }
-
-
-
-
-
 }

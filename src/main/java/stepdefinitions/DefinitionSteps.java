@@ -241,7 +241,8 @@ public class DefinitionSteps {
 
     @Then("User checks that add to cart popup header is {string}")
     public void userChecksThatAddToCartPopupHeaderIsHeader(final String expectedText) {
-        checkoutPage.waitForAjaxToComplete(DEFAULT_TIMEOUT);
+        checkoutPage = pageFactoryManager.getCheckoutPage();
+        checkoutPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         Assert.assertEquals(checkoutPage.getAddToCartPopupHeaderText(), expectedText);
     }
 
