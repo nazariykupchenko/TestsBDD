@@ -9,7 +9,7 @@ public class ProductPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(id = "add-to-cart-button")
+    @FindBy(xpath = "//input[@id='add-to-cart-button']")
     private WebElement addToCartButton;
 
     public void clickAddToCartButton(){
