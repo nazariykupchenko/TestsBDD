@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 import manager.PageFactoryManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
@@ -27,7 +26,7 @@ public class DefinitionSteps {
     SignInPage signInPage;
     LanguagePage languagePage;
     CartPage cartPage;
-    RegisterPage registerPage;
+    RegistrationPage registrationPage;
     SearchResultPage searchResultPage;
     ProductPage productPage;
     CheckoutPage checkoutPage;
