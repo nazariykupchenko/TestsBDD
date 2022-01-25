@@ -30,8 +30,8 @@ public class PageFactoryManager {
         return new LanguagePage(driver);
     }
 
-    public RegisterPage getRegisterPage() {
-        return new RegisterPage(driver);
+    public RegistrationPage getRegistrationPage() {
+        return new RegistrationPage(driver);
     }
 
     public SearchResultPage getSearchResultPage() {
