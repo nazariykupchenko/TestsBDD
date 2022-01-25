@@ -36,6 +36,20 @@ public class HomePage extends BasePage {
     private WebElement submitChangeCountryButton;
     @FindBy(css = "div.a-popover-inner.a-lgtbox-vertical-scroll")
     private List<WebElement> countryListIcons;
+    @FindBy(xpath = "//a[@data-menu-id]")
+    private List<WebElement> sideMenuTitles;
+    @FindBy(id = "nav-hamburger-menu")
+    private WebElement sideMenuButton;
+
+    public List<WebElement> getSideMenuTitles(){
+        return sideMenuTitles;
+    }
+    public void clickSideMenuButton(){
+        sideMenuButton.click();
+    }
+    public int getAmountOfSideMenuTitles(){
+        return sideMenuTitles.size();
+    }
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -118,6 +132,11 @@ public class HomePage extends BasePage {
 
     public void clickDropdownCountryMenu() {
         dropdownCountryValue.click();
+    }
+
+    public void enterProductNameToSearchField(String productName){
+        searchField.clear();
+        searchField.sendKeys(productName);
     }
 
 

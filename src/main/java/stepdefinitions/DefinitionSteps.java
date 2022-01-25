@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import manager.PageFactoryManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
@@ -28,6 +29,8 @@ public class DefinitionSteps {
     CartPage cartPage;
     RegisterPage registerPage;
     SearchResultPage searchResultPage;
+    ProductPage productPage;
+    CheckoutPage checkoutPage;
 
 
     @Before
@@ -36,7 +39,6 @@ public class DefinitionSteps {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         pageFactoryManager = new PageFactoryManager(driver);
-
     }
 
     @After
@@ -147,12 +149,7 @@ public class DefinitionSteps {
         assertTrue(driver.getCurrentUrl().contains(language));
     }
 
-//    @And("User checks email field visible")
-//    public void userChecksEmailFieldVisible() {
-//        signInPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-//        signInPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, signInPage.getLoginField());
-//        signInPage.isLoginFieldVisible();
-//    }
+
 
 
     @When("User enter {string} to email field")
@@ -210,6 +207,56 @@ public class DefinitionSteps {
     public void userChecksThatLocationIconContainsCountryNameText(final String countryName) {
         homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
         assertEquals(homePage.locationIcon().getText(), countryName);
+    }
 
+    @When("User enter {string} to search field")
+    public void userEnterProductNameToSearchField(final String productName) {
+        homePage.enterProductNameToSearchField(productName);
+    }
+
+    @And("User clicks on search button")
+    public void userClicksOnSearchButton() {
+        homePage.clickSearchButton();
+    }
+
+    @And("User clicks on first product in search results list")
+    public void userClicksOnFirstProductInSearchResultsList() {
+        searchResultPage = pageFactoryManager.getSearchResultPage();
+        searchResultPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, searchResultPage.getSearchResultList().get(0));
+    }
+
+    @And("User clicks Add to Cart button")
+    public void userClicksButton() {
+        productPage = pageFactoryManager.getProductPage();
+        productPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        productPage.clickAddToCartButton();
+    }
+
+    @Then("User checks that add to cart popup header is {string}")
+    public void userChecksThatAddToCartPopupHeaderIsHeader(final String expectedText) {
+        checkoutPage = pageFactoryManager.getCheckoutPage();
+        checkoutPage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        Assert.assertEquals(checkoutPage.getAddToCartPopupHeaderText(), expectedText);
+    }
+
+    @And("User checks that Go to Cart button visible")
+    public void userChecksThatGoToCartButtonVisible() {
+        Assert.assertTrue(checkoutPage.isGoToCartButtonVisible());
+    }
+
+    @And("User checks that Proceed to checkout button visible")
+    public void userChecksThatProceedToCheckoutButtonVisible() {
+        Assert.assertTrue(checkoutPage.isProceedToCheckoutButtonVisible());
+    }
+
+    @When("User open side menu")
+    public void userOpenSideMenu() {
+        homePage.clickSideMenuButton();
+    }
+
+    @Then("User check that amount of submenu  in side menu list are {int}")
+    public void userCheckThatAmountOfSubmenuInSideMenuListAre(int arg0) {
+        homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
+        Assert.assertEquals(homePage.getAmountOfSideMenuTitles(), arg0);
     }
 }
