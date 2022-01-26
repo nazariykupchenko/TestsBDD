@@ -6,57 +6,59 @@ import org.openqa.selenium.support.FindBy;
 
 public class SignInPage extends BasePage {
 
-    @FindBy(id = "auth-email-missing-alert")
-    private WebElement alertMessage;
-    @FindBy(className = "a-button-input")
-    private WebElement continueButton;
-    @FindBy(id = "ap_email")
-    private WebElement loginField;
-    @FindBy(id = "auth-error-message-box")
-    private WebElement errorMessage;
-    @FindBy(id = "auth-create-account-link")
-    private WebElement createNewAccountButton;
+  @FindBy(id = "auth-email-missing-alert")
+  private WebElement alertMessage;
+  @FindBy(className = "a-button-input")
+  private WebElement continueButton;
+  @FindBy(id = "ap_email")
+  private WebElement loginField;
+  @FindBy(id = "auth-error-message-box")
+  private WebElement errorMessage;
+  @FindBy(id = "auth-create-account-link")
+  private WebElement createNewAccountButton;
 
-    public SignInPage(WebDriver driver) {
-        super(driver);
-    }
-    public void clickCreateNewAccountButton(){
-        createNewAccountButton.click();
-    }
-    public WebElement getErrorMessage() {
-        return errorMessage;
-    }
+  public SignInPage(WebDriver driver) {
+    super(driver);
+  }
 
-    public boolean isErrorMessageVisible() {
-        return errorMessage.isDisplayed();
-    }
+  public void clickCreateNewAccountButton() {
+    createNewAccountButton.click();
+  }
 
-    public WebElement getLoginField() {
-        return loginField;
-    }
+  public WebElement getErrorMessage() {
+    return errorMessage;
+  }
 
-    public WebElement getContinueButton() {
-        return continueButton;
-    }
+  public boolean isErrorMessageVisible() {
+    return errorMessage.isDisplayed();
+  }
 
-    public void isLoginFieldVisible() {
-        loginField.isDisplayed();
-    }
+  public WebElement getLoginField() {
+    return loginField;
+  }
 
-    public void isContinueButtonVisible() {
-        continueButton.isDisplayed();
-    }
+  public WebElement getContinueButton() {
+    return continueButton;
+  }
 
-    public void clickContinueButton() {
-        continueButton.click();
-    }
+  public void isLoginFieldVisible() {
+    loginField.isDisplayed();
+  }
 
-    public boolean isAlertMessageVisible() {
-        return alertMessage.isDisplayed();
-    }
+  public void isContinueButtonVisible() {
+    continueButton.isDisplayed();
+  }
 
-    public void enterKeywordToLoginField(final String keyword) {
-        loginField.clear();
-        loginField.sendKeys(keyword);
-    }
+  public void clickContinueButton() {
+    continueButton.click();
+  }
+
+  public boolean isAlertMessageVisible() {
+    return alertMessage.isDisplayed();
+  }
+
+  public void enterKeywordToLoginField(final String keyword) {
+    loginField.clear();
+    loginField.sendKeys(keyword);
+  }
 }

@@ -61,8 +61,8 @@ Feature: Regression
     And User checks that Proceed to checkout button visible
 
     Examples:
-      | homePage                            | productName |header       |
-      | https://www.amazon.com/ref=nav_logo | Iphone 10   |Added to Cart|
+      | homePage                            | productName | header        |
+      | https://www.amazon.com/ref=nav_logo | Iphone 10   | Added to Cart |
 
 
   Scenario Outline: Check to register with invalid email data
@@ -78,6 +78,6 @@ Feature: Regression
     And User clicks  create new account on Amazon button
     Then User checks that warning message visible
     Examples:
-      | homePage                            |name |email|password|
-      | https://www.amazon.com/ref=nav_logo |test |test |testtest|
+      | homePage                            | name | email | password |
+      | https://www.amazon.com/ref=nav_logo | test | test  | testtest |
 
