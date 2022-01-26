@@ -1,45 +1,53 @@
 package manager;
 
 import org.openqa.selenium.WebDriver;
-import pages.*;
+import pages.CartPage;
+import pages.CheckoutPage;
+import pages.HomePage;
+import pages.LanguagePage;
+import pages.ProductPage;
+import pages.RegistrationPage;
+import pages.SearchResultPage;
+import pages.SignInPage;
 
 public class PageFactoryManager {
-    WebDriver driver;
 
-    public PageFactoryManager(WebDriver driver) {
-        this.driver = driver;
-    }
+  WebDriver driver;
 
-    public HomePage getHomePage() {
-        return new HomePage(driver);
-    }
+  public PageFactoryManager(WebDriver driver) {
+    this.driver = driver;
+  }
 
-    public ProductPage getProductPage(){
-        return new ProductPage(driver);
-    }
+  public HomePage getHomePage() {
+    return new HomePage(driver);
+  }
 
-    public SignInPage getSignInPage() {
-        return new SignInPage(driver);
-    }
+  public ProductPage getProductPage() {
+    return new ProductPage(driver);
+  }
 
-    public CartPage getCartPage() {
-        return new CartPage(driver);
-    }
+  public SignInPage getSignInPage() {
+    return new SignInPage(driver);
+  }
 
-    public LanguagePage getLanguagePage() {
-        return new LanguagePage(driver);
-    }
+  public CartPage getCartPage() {
+    return new CartPage(driver);
+  }
 
-    public RegistrationPage getRegistrationPage() {
-        return new RegistrationPage(driver);
-    }
+  public LanguagePage getLanguagePage() {
+    return new LanguagePage(driver);
+  }
 
-    public SearchResultPage getSearchResultPage() {
-        return new SearchResultPage(driver);
-    }
+  public RegistrationPage getRegistrationPage() {
+    return new RegistrationPage(driver);
+  }
 
-    public CheckoutPage getCheckoutPage(){
-        return new CheckoutPage(driver);
-    }
+  public SearchResultPage getSearchResultPage() {
+    return new SearchResultPage(driver);
+  }
+
+  public CheckoutPage getCheckoutPage() {
+    return new CheckoutPage(driver);
+  }
 
 }
