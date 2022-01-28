@@ -8,9 +8,9 @@ public class CheckoutPage extends BasePage {
 
   @FindBy(id = "sc-buy-box-ptc-button")
   private WebElement proceedToCheckoutButton;
-  @FindBy(xpath = "//*[@id=\"sw-gtc\"]/span")
+  @FindBy(css = "#sw-gtc")
   private WebElement goToCartButton;
-  @FindBy(xpath = "//*[@id=\"sw-atc-details-single-container\"]/div[2]/div[1]/span")
+  @FindBy(css = "div.a-section.a-spacing-none.a-padding-none")
   private WebElement addToCartPopupHeader;
 
   public CheckoutPage(WebDriver driver) {

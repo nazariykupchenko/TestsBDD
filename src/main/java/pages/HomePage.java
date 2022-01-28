@@ -35,7 +35,7 @@ public class HomePage extends BasePage {
   private WebElement submitChangeCountryButton;
   @FindBy(css = "div.a-popover-inner.a-lgtbox-vertical-scroll")
   private List<WebElement> countryListIcons;
-  @FindBy(xpath = "//a[@data-menu-id]")
+  @FindBy(css = "i.nav-sprite.hmenu-arrow-next")
   private List<WebElement> sideMenuTitles;
   @FindBy(id = "nav-hamburger-menu")
   private WebElement sideMenuButton;
