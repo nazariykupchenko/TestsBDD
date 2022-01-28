@@ -1,5 +1,5 @@
 # UI test automation project
-[Amzon Web UI](https://www.amazon.com/ref=nav_logo)
+[Amazon Web UI](https://www.amazon.com/ref=nav_logo)
 
 ##Tools
 Java 8, Selenium WebDriver, WebDriverManager, Cucumber BDD, JUnit, Maven
