@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LanguagePage extends BasePage {
 
-  @FindBy(xpath = "//*[@id='customer-preferences']/div/div/form/div[1]/div[1]/div[2]/div")
+  @FindBy(css = "input[value='es_US']")
   private WebElement secondLanguage;
   @FindBy(id = "icp-btn-save")
   private WebElement saveChangesButton;

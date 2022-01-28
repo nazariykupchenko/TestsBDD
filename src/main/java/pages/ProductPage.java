@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class ProductPage extends BasePage {
 
-  @FindBy(xpath = "//input[@id='add-to-cart-button']")
+  @FindBy(css = "#add-to-cart-button")
   private WebElement addToCartButton;
 
   public ProductPage(WebDriver driver) {
