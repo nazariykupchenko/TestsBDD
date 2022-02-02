@@ -13,7 +13,6 @@ import manager.PageFactoryManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CartPage;
 import pages.CheckoutPage;
 import pages.HomePage;
 import pages.LanguagePage;
@@ -32,7 +31,6 @@ public class DefinitionSteps {
   HomePage homePage;
   SignInPage signInPage;
   LanguagePage languagePage;
-  CartPage cartPage;
   RegistrationPage registrationPage;
   SearchResultPage searchResultPage;
   ProductPage productPage;

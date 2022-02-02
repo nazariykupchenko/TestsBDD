@@ -13,10 +13,6 @@ public class HomePage extends BasePage {
   private WebElement searchField;
   @FindBy(id = "nav-search-submit-button")
   private WebElement searchButton;
-  @FindBy(id = "nav-cart")
-  private WebElement cartIcon;
-  @FindBy(id = "nav-cart-count")
-  private WebElement cartCountIcon;
   @FindBy(id = "nav-link-accountList-nav-line-1")
   private WebElement signInButton;
   @FindBy(id = "nav-logo")
@@ -42,10 +38,6 @@ public class HomePage extends BasePage {
 
   public HomePage(WebDriver driver) {
     super(driver);
-  }
-
-  public List<WebElement> getSideMenuTitles() {
-    return sideMenuTitles;
   }
 
   public void clickSideMenuButton() {
@@ -88,15 +80,6 @@ public class HomePage extends BasePage {
 
   public void isLogoVisible() {
     logo.isDisplayed();
-  }
-
-  public void isCartIconVisible() {
-    cartIcon.isDisplayed();
-  }
-
-
-  public String getCartCountIconText() {
-    return cartCountIcon.getText();
   }
 
   public void isNavigateMenuVisible() {
