@@ -1,7 +1,6 @@
 package manager;
 
 import org.openqa.selenium.WebDriver;
-import pages.CartPage;
 import pages.CheckoutPage;
 import pages.HomePage;
 import pages.LanguagePage;
@@ -28,10 +27,6 @@ public class PageFactoryManager {
 
   public SignInPage getSignInPage() {
     return new SignInPage(driver);
-  }
-
-  public CartPage getCartPage() {
-    return new CartPage(driver);
   }
 
   public LanguagePage getLanguagePage() {

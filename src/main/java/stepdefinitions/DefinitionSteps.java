@@ -13,7 +13,6 @@ import manager.PageFactoryManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CartPage;
 import pages.CheckoutPage;
 import pages.HomePage;
 import pages.LanguagePage;
@@ -32,7 +31,6 @@ public class DefinitionSteps {
   HomePage homePage;
   SignInPage signInPage;
   LanguagePage languagePage;
-  CartPage cartPage;
   RegistrationPage registrationPage;
   SearchResultPage searchResultPage;
   ProductPage productPage;
@@ -138,7 +136,6 @@ public class DefinitionSteps {
   @When("User clicks on second language in the list")
   public void userClicksOnSecondLanguageInTheList() {
     languagePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-//        languagePage.waitForAjaxToComplete(DEFAULT_TIMEOUT);
     languagePage.clickSecondLanguage();
   }
 
@@ -151,8 +148,6 @@ public class DefinitionSteps {
 
   @Then("User checks that current url contains {string} language")
   public void checkCurrentUrl(final String language) {
-//        homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-//        homePage.waitForAjaxToComplete(DEFAULT_TIMEOUT);
     assertTrue(driver.getCurrentUrl().contains(language));
   }
 
