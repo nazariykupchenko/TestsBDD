@@ -13,6 +13,7 @@ import manager.PageFactoryManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import pages.CheckoutPage;
 import pages.HomePage;
 import pages.LanguagePage;
@@ -40,7 +41,9 @@ public class DefinitionSteps {
   @Before
   public void testsSetUp() {
     chromedriver().setup();
-    driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless");
+    driver = new ChromeDriver(options);
     driver.manage().window().maximize();
     pageFactoryManager = new PageFactoryManager(driver);
   }
